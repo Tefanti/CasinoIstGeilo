@@ -39,7 +39,7 @@ public class invClickListener implements Listener {
                 if (e.getCurrentItem().getType() == Material.SKULL_ITEM) {
                     e.setCancelled(true);
 
-                    InventoryManager.managerequestInv(p, Bukkit.getPlayer(((Skull) e.getCurrentItem()).getOwner()));
+                    InventoryManager.managerequestInv(p, Bukkit.getPlayer(e.getCurrentItem().getItemMeta().getDisplayName()));
                     p.openInventory(InventoryManager.requestinv);
                     p.playSound(p.getLocation(), Sound.CLICK, 1.0f, 1.0f);
 
