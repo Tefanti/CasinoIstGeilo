@@ -19,7 +19,6 @@ public class CasinoRoyale extends JavaPlugin {
         instance = this;
 
         this.getServer().getPluginManager().registerEvents(new invClickListener(),this);
-
         this.getServer().getPluginManager().registerEvents(new leaveListener(),this);
         getCommand("casino").setExecutor(new casinoCMD());
 

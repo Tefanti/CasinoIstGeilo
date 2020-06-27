@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class QueueManager {
     public static ArrayList<Player> RPSQueue = new ArrayList<>();
+    public static ArrayList<Player> TTTQueue = new ArrayList<>();
 
     public static void addPlayer(GameManager.GameType type, Player p){
 
@@ -16,6 +17,11 @@ public class QueueManager {
             case ROCKPAPERSCISSORS:
                 if(!RPSQueue.contains(p)) {
                     RPSQueue.add(p);
+                }
+                break;
+            case TICTACTOE:
+                if(!TTTQueue.contains(p)) {
+                    TTTQueue.add(p);
                 }
                 break;
         }
@@ -28,6 +34,11 @@ public class QueueManager {
                     RPSQueue.remove(p);
                 }
                 break;
+            case TICTACTOE:
+                if(TTTQueue.contains(p)){
+                    TTTQueue.remove(p);
+                }
+                break;
         }
     }
     public static int queuerefreshtaskid = Bukkit.getScheduler().scheduleSyncRepeatingTask(CasinoRoyale.getInstance(), new Runnable() {
@@ -38,6 +49,12 @@ public class QueueManager {
                 GameManager.startGame(GameManager.GameType.ROCKPAPERSCISSORS,RPSQueue.get(0),RPSQueue.get(1));
                 removePlayer(GameManager.GameType.ROCKPAPERSCISSORS,RPSQueue.get(0));
                 removePlayer(GameManager.GameType.ROCKPAPERSCISSORS,RPSQueue.get(0));
+            }
+            if(TTTQueue.size() > 1){
+
+                GameManager.startGame(GameManager.GameType.TICTACTOE,TTTQueue.get(0),TTTQueue.get(1));
+                removePlayer(GameManager.GameType.TICTACTOE,TTTQueue.get(0));
+                removePlayer(GameManager.GameType.TICTACTOE,TTTQueue.get(0));
             }
         }
     },0L,2L);

@@ -52,6 +52,7 @@ public class InventoryManager {
 
         gameinv = Bukkit.getServer().createInventory(null,1*9, ChatColor.BLUE + "§lGames");
         gameinv.setItem(4, new ItemManager(SHEARS).setDisplayName(ChatColor.AQUA + "RPS").build());
+        gameinv.setItem(5, new ItemManager(BARRIER).setDisplayName(ChatColor.AQUA + "TTT").build());
 
 
     }

@@ -54,8 +54,7 @@ public class CasinoRPSGame implements Listener {
     public void beginGame(){
 
 
-        Inventory rps0inv1 = Bukkit.getServer().createInventory(null, 1 * 9, ChatColor.BLUE + "§lRPS0-CHOOSE");
-
+        Inventory rps0inv1 = Bukkit.getServer().createInventory(null, 1 * 9, ChatColor.BLUE + "§lRPS-CHOOSE");
         rps0inv1.setItem(3, new ItemManager(COBBLESTONE).setDisplayName(ChatColor.AQUA + "ROCK").build());
         rps0inv1.setItem(4, new ItemManager(PAPER).setDisplayName(ChatColor.AQUA + "PAPER").build());
         rps0inv1.setItem(5, new ItemManager(SHEARS).setDisplayName(ChatColor.AQUA + "SCISSORS").build());
@@ -84,7 +83,7 @@ public class CasinoRPSGame implements Listener {
 
             }
 
-        }, 10 * 20L);
+        }, 15 * 20L);
 
 
 
@@ -98,7 +97,7 @@ public class CasinoRPSGame implements Listener {
         Player p = (Player) e.getWhoClicked();
 
 
-        if (e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lRPS0-VS") || e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lRPS0-END")) {
+        if (e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lRPS") || e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lRPS-END")) {
 
             if (e.getCurrentItem() != null) {
                 e.setCancelled(true);
@@ -108,7 +107,7 @@ public class CasinoRPSGame implements Listener {
 
 
 
-        if (e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lRPS0-CHOOSE")) {
+        if (e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lRPS-CHOOSE")) {
 
 
             if (e.getCurrentItem().hasItemMeta()) {
@@ -162,7 +161,7 @@ public class CasinoRPSGame implements Listener {
             if (rps0choice1 != 0 && rps0choice2 != 0) {
                 this.isrunning = false;
 
-                Inventory rps0vsinv = Bukkit.getServer().createInventory(null, 3 * 9, ChatColor.BLUE + "§lRPS0-VS");
+                Inventory rps0vsinv = Bukkit.getServer().createInventory(null, 3 * 9, ChatColor.BLUE + "§lRPS0");
                 rps0vsinv.setItem(4, new ItemManager(BLAZE_ROD).setDisplayName(ChatColor.GOLD + "VS.").build());
                 rps0vsinv.setItem(13, new ItemManager(BLAZE_ROD).setDisplayName(ChatColor.GOLD + "VS.").build());
                 rps0vsinv.setItem(22, new ItemManager(BLAZE_ROD).setDisplayName(ChatColor.GOLD + "VS.").build());
@@ -205,7 +204,7 @@ public class CasinoRPSGame implements Listener {
 
 
 
-                        Inventory rps0endinv = Bukkit.getServer().createInventory(null, 3 * 9, ChatColor.BLUE + "§lRPS0-END");
+                        Inventory rps0endinv = Bukkit.getServer().createInventory(null, 3 * 9, ChatColor.BLUE + "§lRPS-END");
 
 
 

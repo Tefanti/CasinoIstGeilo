@@ -68,6 +68,26 @@ public class invClickListener implements Listener {
                     p.playSound(p.getLocation(), Sound.CLICK, 1.0f, 1.0f);
 
                 }
+
+                if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "TTT")) {
+
+
+                    e.setCancelled(true);
+
+                    if (QueueManager.TTTQueue.contains(p)) {
+                        p.sendMessage(ChatColor.WHITE + "You left the Queue for TTT");
+                        QueueManager.removePlayer(GameManager.GameType.TICTACTOE,p);
+
+
+                    } else {
+                        p.sendMessage(ChatColor.WHITE + "You entered the Queue for TTT");
+                        QueueManager.addPlayer(GameManager.GameType.TICTACTOE,p);
+
+                    }
+                    p.closeInventory();
+                    p.playSound(p.getLocation(), Sound.CLICK, 1.0f, 1.0f);
+
+                }
             }
         }
 

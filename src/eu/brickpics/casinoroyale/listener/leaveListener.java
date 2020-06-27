@@ -16,6 +16,7 @@ public class leaveListener implements Listener {
 
 
         QueueManager.removePlayer(GameManager.GameType.ROCKPAPERSCISSORS,p);
+        QueueManager.removePlayer(GameManager.GameType.TICTACTOE,p);
 
 
 
