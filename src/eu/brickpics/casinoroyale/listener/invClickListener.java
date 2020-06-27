@@ -3,12 +3,17 @@ package eu.brickpics.casinoroyale.listener;
 import eu.brickpics.casinoroyale.manager.GameManager;
 import eu.brickpics.casinoroyale.manager.InventoryManager;
 import eu.brickpics.casinoroyale.manager.QueueManager;
+import eu.brickpics.casinoroyale.manager.RequestManager;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.Skull;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
 
 public class invClickListener implements Listener {
 
@@ -30,6 +35,16 @@ public class invClickListener implements Listener {
 
 
                 }
+
+                if (e.getCurrentItem().getType() == Material.SKULL_ITEM) {
+                    e.setCancelled(true);
+
+                    InventoryManager.managerequestInv(p, Bukkit.getPlayer(((Skull) e.getCurrentItem()).getOwner()));
+                    p.openInventory(InventoryManager.requestinv);
+                    p.playSound(p.getLocation(), Sound.CLICK, 1.0f, 1.0f);
+
+                    //RequestManager.addRequest(p, Bukkit.getPlayer(e.getCurrentItem().getItemMeta().getDisplayName()), );
+                }
             }
 
 
@@ -44,6 +59,30 @@ public class invClickListener implements Listener {
             }
         }
 
+        // "§lRequest"
+
+        if (e.getInventory().getTitle().startsWith(ChatColor.BLUE + "§lRequest")) {
+            if (e.getCurrentItem().hasItemMeta()) {
+                if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "RPS")) {
+                    e.setCancelled(true);
+
+                    RequestManager.addRequest(p, Bukkit.getPlayer(e.getInventory().getTitle().split(" ")[1]), GameManager.GameType.ROCKPAPERSCISSORS);
+                    p.closeInventory();
+                    p.playSound(p.getLocation(), Sound.CLICK, 1.0f, 1.0f);
+
+                } else if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "TTT")) {
+                    e.setCancelled(true);
+
+                    RequestManager.addRequest(p, Bukkit.getPlayer(e.getInventory().getTitle().split(" ")[1]), GameManager.GameType.TICTACTOE);
+                    p.closeInventory();
+                    p.playSound(p.getLocation(), Sound.CLICK, 1.0f, 1.0f);
+
+                }
+
+                // TODO: TicTacToe
+            }
+
+        }
 
         if (e.getInventory().getTitle().equalsIgnoreCase(ChatColor.BLUE + "§lGames")) {
 
