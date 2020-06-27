@@ -15,6 +15,7 @@ public class InventoryManager {
 
     public static Inventory casinoinv;
     public static Inventory gameinv;
+    public static Inventory requestinv;
 
     public static void managecasinoInv(Player p){
 
@@ -53,6 +54,16 @@ public class InventoryManager {
         gameinv = Bukkit.getServer().createInventory(null,1*9, ChatColor.BLUE + "§lGames");
         gameinv.setItem(4, new ItemManager(SHEARS).setDisplayName(ChatColor.AQUA + "RPS").build());
         gameinv.setItem(5, new ItemManager(BARRIER).setDisplayName(ChatColor.AQUA + "TTT").build());
+        gameinv.setItem(5, new ItemManager(BARRIER).setDisplayName(ChatColor.AQUA + "TTT").build());
+
+
+    }
+
+    public static void managerequestInv(Player p, Player p2){
+
+        requestinv = Bukkit.getServer().createInventory(null,1*9, ChatColor.BLUE + "§lRequest " + p2.getDisplayName());
+        requestinv.setItem(4, new ItemManager(SHEARS).setDisplayName(ChatColor.AQUA + "RPS").build());
+        requestinv.setItem(5, new ItemManager(BARRIER).setDisplayName(ChatColor.AQUA + "TTT").build());
 
 
     }
