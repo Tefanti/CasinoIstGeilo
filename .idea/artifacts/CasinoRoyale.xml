@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="CasinoRoyale">
+    <output-path>$PROJECT_DIR$/out/artifacts/CasinoRoyale</output-path>
+    <root id="archive" name="CasinoRoyale.jar">
+      <element id="module-output" name="CasinoIstGeilo" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,6 @@
+name: Casino
+version: 1.0
+author: Tefant
+main: eu.brickpics.casinoroyale.CasinoRoyale
+commands:
+  casino:
