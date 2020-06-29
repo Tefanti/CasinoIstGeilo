@@ -2,6 +2,7 @@ package eu.brickpics.casinoroyale;
 
 import eu.brickpics.casinoroyale.manager.GameManager;
 import eu.brickpics.casinoroyale.manager.ItemManager;
+import eu.brickpics.casinoroyale.manager.PlayerManager;
 import eu.brickpics.casinoroyale.storage.Data;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -46,6 +47,9 @@ public class CasinoRPSGame implements Listener {
 
     public void abortGame(){
 
+        PlayerManager.removeFromList(p1);
+        PlayerManager.removeFromList(p2);
+
         this.isrunning = false;
         GameManager.endGame(GameManager.GameType.ROCKPAPERSCISSORS,this);
 
@@ -53,7 +57,8 @@ public class CasinoRPSGame implements Listener {
     }
 
     public void beginGame(){
-
+        PlayerManager.addToList(p1, GameManager.GameType.ROCKPAPERSCISSORS);
+        PlayerManager.addToList(p2, GameManager.GameType.ROCKPAPERSCISSORS);
 
         Inventory rps0inv1 = Bukkit.getServer().createInventory(null, 1 * 9, ChatColor.BLUE + "§lRPS-CHOOSE");
         rps0inv1.setItem(3, new ItemManager(COBBLESTONE).setDisplayName(ChatColor.AQUA + "ROCK").build());

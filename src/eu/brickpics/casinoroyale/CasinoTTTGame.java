@@ -2,6 +2,7 @@ package eu.brickpics.casinoroyale;
 
 import eu.brickpics.casinoroyale.manager.GameManager;
 import eu.brickpics.casinoroyale.manager.ItemManager;
+import eu.brickpics.casinoroyale.manager.PlayerManager;
 import eu.brickpics.casinoroyale.storage.Data;
 import net.geknxddelt.info.api.ColorAPI;
 import org.bukkit.*;
@@ -46,6 +47,8 @@ public class CasinoTTTGame implements Listener{
     }
 
     public void abortGame(){
+        PlayerManager.removeFromList(p1);
+        PlayerManager.removeFromList(p2);
         this.isrunningttt = false;
         GameManager.endGame(GameManager.GameType.TICTACTOE,this);
 
@@ -54,6 +57,9 @@ public class CasinoTTTGame implements Listener{
     }
 
     public void beginGame(){
+
+        PlayerManager.addToList(p1, GameManager.GameType.TICTACTOE);
+        PlayerManager.addToList(p2, GameManager.GameType.TICTACTOE);
 
         ttt0inv1 = Bukkit.getServer().createInventory(null, 3*9, ChatColor.BLUE + "§lTTT");
         ttt0inv1.setItem(2, new ItemManager(BLAZE_ROD).setNoName().build());
