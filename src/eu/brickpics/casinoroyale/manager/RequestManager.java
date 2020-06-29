@@ -1,6 +1,7 @@
 package eu.brickpics.casinoroyale.manager;
 
 import eu.brickpics.casinoroyale.CasinoRequest;
+import eu.brickpics.casinoroyale.storage.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -29,7 +30,11 @@ public class RequestManager {
 
 
     public static void acceptRequest(CasinoRequest request) {
-        request.accept();
+        if (!PlayerManager.isPlaying(request.requestOrigin) || !PlayerManager.isPlaying(request.requestDestination))
+            request.accept();
+        else
+            request.requestDestination.sendMessage(Data.PREFIX + "The Request could not be accepted. One of the Players is already playing");
+            request.requestOrigin.sendMessage(Data.PREFIX + "The Request could not be accepted. One of the Players is already playing");
     }
 
 

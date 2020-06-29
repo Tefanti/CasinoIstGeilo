@@ -29,6 +29,7 @@ public class CasinoRequest {
     }
 
     public void accept() { // Aka start
+
         GameManager.startGame(type, requestOrigin, requestDestination);
     }
 
