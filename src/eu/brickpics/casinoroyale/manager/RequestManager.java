@@ -30,7 +30,7 @@ public class RequestManager {
 
 
     public static void acceptRequest(CasinoRequest request) {
-        if (!PlayerManager.isPlaying(request.requestOrigin) || !PlayerManager.isPlaying(request.requestDestination))
+        if (!PlayerManager.isPlaying(request.requestOrigin) && !PlayerManager.isPlaying(request.requestDestination))
             request.accept();
         else
             request.requestDestination.sendMessage(Data.PREFIX + "The Request could not be accepted. One of the Players is already playing");
