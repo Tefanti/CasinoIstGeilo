@@ -2,6 +2,7 @@ package eu.brickpics.casinoroyale;
 
 import eu.brickpics.casinoroyale.manager.GameManager;
 import eu.brickpics.casinoroyale.manager.ItemManager;
+import eu.brickpics.casinoroyale.storage.Data;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -71,10 +72,8 @@ public class CasinoRPSGame implements Listener {
             public void run() {
 
                 if(isrunning) {
-                    p1.closeInventory();
-                    p1.sendMessage(ChatColor.WHITE +"Game timed out");
-                    p2.closeInventory();
-                    p2.sendMessage(ChatColor.WHITE +"Game timed out");
+                    p1.sendMessage(Data.PREFIX + ChatColor.WHITE +"Game timed out");
+                    p2.sendMessage(Data.PREFIX + ChatColor.WHITE +"Game timed out");
                     abortGame();
 
 
@@ -326,16 +325,16 @@ public class CasinoRPSGame implements Listener {
 
                         for(Player all : Bukkit.getOnlinePlayers()) {
                             if (rps0choice1 == rps0choice2) {
-                                all.sendMessage(ChatColor.GOLD + p1.getDisplayName() + ChatColor.WHITE + " played draft against " + ChatColor.GOLD + p2.getDisplayName() + ChatColor.WHITE + " in RPS");
+                                all.sendMessage(Data.PREFIX + ChatColor.GOLD + p1.getDisplayName() + ChatColor.WHITE + " played draft against " + ChatColor.GOLD + p2.getDisplayName() + ChatColor.WHITE + " in RPS");
                             }
 
                             if (rps0choice1 == 1 && rps0choice2 == 3 || rps0choice1 == 2 && rps0choice2 == 1 || rps0choice1 == 3 && rps0choice2 == 2) {
-                                all.sendMessage(ChatColor.GOLD + p1.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + p2.getDisplayName() + ChatColor.WHITE + " in RPS");
+                                all.sendMessage(Data.PREFIX + ChatColor.GOLD + p1.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + p2.getDisplayName() + ChatColor.WHITE + " in RPS");
                             }
 
 
                             if (rps0choice2 == 1 && rps0choice1 == 3 || rps0choice2 == 2 && rps0choice1 == 1 || rps0choice2 == 3 && rps0choice1 == 2) {
-                                all.sendMessage(ChatColor.GOLD + p2.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + p1.getDisplayName() + ChatColor.WHITE + " in RPS");
+                                all.sendMessage(Data.PREFIX + ChatColor.GOLD + p2.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + p1.getDisplayName() + ChatColor.WHITE + " in RPS");
                             }
 
                         }

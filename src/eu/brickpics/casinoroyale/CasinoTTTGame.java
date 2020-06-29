@@ -2,6 +2,7 @@ package eu.brickpics.casinoroyale;
 
 import eu.brickpics.casinoroyale.manager.GameManager;
 import eu.brickpics.casinoroyale.manager.ItemManager;
+import eu.brickpics.casinoroyale.storage.Data;
 import net.geknxddelt.info.api.ColorAPI;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -90,10 +91,8 @@ public class CasinoTTTGame implements Listener{
             public void run() {
 
                 if(isrunningttt) {
-                    p1.closeInventory();
-                    p1.sendMessage(ChatColor.WHITE +"Game timed out");
-                    p2.closeInventory();
-                    p2.sendMessage(ChatColor.WHITE +"Game timed out");
+                    p1.sendMessage(Data.PREFIX +ChatColor.WHITE +"Game timed out");
+                    p2.sendMessage(Data.PREFIX +ChatColor.WHITE +"Game timed out");
                     abortGame();
 
 
@@ -153,7 +152,7 @@ public class CasinoTTTGame implements Listener{
                 if(e.getClickedInventory().getItem(3).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(4).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(5).getType().equals(SNOW_BALL) || e.getClickedInventory().getItem(12).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(13).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(14).getType().equals(SNOW_BALL) || e.getClickedInventory().getItem(21).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(22).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(23).getType().equals(SNOW_BALL)){
 
 
-                    Bukkit.broadcastMessage(this.p1.getDisplayName() + " won against " + this.p2.getDisplayName() + " in TicTacToe");
+                    Bukkit.broadcastMessage(Data.PREFIX + ChatColor.GOLD + this.p1.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + this.p2.getDisplayName() + ChatColor.WHITE + " in TicTacToe");
                     e.setCancelled(true);
                     this.isrunningttt = false;
                     abortGame();
@@ -163,7 +162,7 @@ public class CasinoTTTGame implements Listener{
                 if(e.getClickedInventory().getItem(3).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(12).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(21).getType().equals(SNOW_BALL) || e.getClickedInventory().getItem(4).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(13).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(22).getType().equals(SNOW_BALL) || e.getClickedInventory().getItem(5).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(14).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(23).getType().equals(SNOW_BALL)){
 
 
-                    Bukkit.broadcastMessage(this.p1.getDisplayName() + " won against " + this.p2.getDisplayName() + " in TicTacToe");
+                    Bukkit.broadcastMessage(Data.PREFIX + ChatColor.GOLD + this.p1.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + this.p2.getDisplayName() + ChatColor.WHITE + " in TicTacToe");
                     e.setCancelled(true);
                     this.isrunningttt = false;
                     abortGame();
@@ -174,7 +173,7 @@ public class CasinoTTTGame implements Listener{
                 if(e.getClickedInventory().getItem(3).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(13).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(23).getType().equals(SNOW_BALL) || e.getClickedInventory().getItem(5).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(13).getType().equals(SNOW_BALL) && e.getClickedInventory().getItem(21).getType().equals(SNOW_BALL)){
 
 
-                    Bukkit.broadcastMessage(this.p1.getDisplayName() + " won against " + this.p2.getDisplayName() + " in TicTacToe");
+                    Bukkit.broadcastMessage(Data.PREFIX + ChatColor.GOLD + this.p1.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + this.p2.getDisplayName() + ChatColor.WHITE + " in TicTacToe");
                     e.setCancelled(true);
                     this.isrunningttt = false;
                     abortGame();
@@ -187,7 +186,7 @@ public class CasinoTTTGame implements Listener{
                 if(e.getClickedInventory().getItem(3).getType().equals(FIREBALL) && e.getClickedInventory().getItem(4).getType().equals(FIREBALL) && e.getClickedInventory().getItem(5).getType().equals(FIREBALL) || e.getClickedInventory().getItem(12).getType().equals(FIREBALL) && e.getClickedInventory().getItem(13).getType().equals(FIREBALL) && e.getClickedInventory().getItem(14).getType().equals(FIREBALL) || e.getClickedInventory().getItem(21).getType().equals(FIREBALL) && e.getClickedInventory().getItem(22).getType().equals(FIREBALL) && e.getClickedInventory().getItem(23).getType().equals(FIREBALL)){
 
 
-                    Bukkit.broadcastMessage(this.p2.getDisplayName() + " won against " + this.p1.getDisplayName() + " in TicTacToe");
+                    Bukkit.broadcastMessage(Data.PREFIX + ChatColor.GOLD + this.p2.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + this.p1.getDisplayName() + ChatColor.WHITE + " in TicTacToe");
                     e.setCancelled(true);
                     this.isrunningttt = false;
                     abortGame();
@@ -197,7 +196,7 @@ public class CasinoTTTGame implements Listener{
                 if(e.getClickedInventory().getItem(3).getType().equals(FIREBALL) && e.getClickedInventory().getItem(12).getType().equals(FIREBALL) && e.getClickedInventory().getItem(21).getType().equals(FIREBALL) || e.getClickedInventory().getItem(4).getType().equals(FIREBALL) && e.getClickedInventory().getItem(13).getType().equals(FIREBALL) && e.getClickedInventory().getItem(22).getType().equals(FIREBALL) || e.getClickedInventory().getItem(5).getType().equals(FIREBALL) && e.getClickedInventory().getItem(14).getType().equals(FIREBALL) && e.getClickedInventory().getItem(23).getType().equals(FIREBALL)){
 
 
-                    Bukkit.broadcastMessage(this.p2.getDisplayName() + " won against " + this.p1.getDisplayName() + " in TicTacToe");
+                    Bukkit.broadcastMessage(Data.PREFIX + ChatColor.GOLD + this.p2.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + this.p1.getDisplayName() + ChatColor.WHITE + " in TicTacToe");
                     e.setCancelled(true);
                     this.isrunningttt = false;
                     abortGame();
@@ -210,7 +209,7 @@ public class CasinoTTTGame implements Listener{
                 if(e.getClickedInventory().getItem(3).getType().equals(FIREBALL) && e.getClickedInventory().getItem(13).getType().equals(FIREBALL) && e.getClickedInventory().getItem(23).getType().equals(FIREBALL) || e.getClickedInventory().getItem(5).getType().equals(FIREBALL) && e.getClickedInventory().getItem(13).getType().equals(FIREBALL) && e.getClickedInventory().getItem(21).getType().equals(FIREBALL)){
 
 
-                    Bukkit.broadcastMessage(this.p2.getDisplayName() + " won against " + this.p1.getDisplayName() + " in TicTacToe");
+                    Bukkit.broadcastMessage(Data.PREFIX + ChatColor.GOLD + this.p2.getDisplayName() + ChatColor.WHITE + " won against " + ChatColor.GOLD + this.p1.getDisplayName() + ChatColor.WHITE + " in TicTacToe");
                     e.setCancelled(true);
                     this.isrunningttt = false;
                     abortGame();

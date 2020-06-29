@@ -4,6 +4,7 @@ import eu.brickpics.casinoroyale.manager.GameManager;
 import eu.brickpics.casinoroyale.manager.InventoryManager;
 import eu.brickpics.casinoroyale.manager.QueueManager;
 import eu.brickpics.casinoroyale.manager.RequestManager;
+import eu.brickpics.casinoroyale.storage.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -94,12 +95,12 @@ public class invClickListener implements Listener {
                     e.setCancelled(true);
 
                     if (QueueManager.RPSQueue.contains(p)) {
-                        p.sendMessage(ChatColor.WHITE + "You left the Queue for RPS");
+                        p.sendMessage(Data.PREFIX + ChatColor.WHITE + "You left the Queue for RPS");
                         QueueManager.removePlayer(GameManager.GameType.ROCKPAPERSCISSORS,p);
 
 
                     } else {
-                        p.sendMessage(ChatColor.WHITE + "You entered the Queue for RPS");
+                        p.sendMessage(Data.PREFIX + ChatColor.WHITE + "You entered the Queue for RPS");
                         QueueManager.addPlayer(GameManager.GameType.ROCKPAPERSCISSORS,p);
 
                     }
@@ -114,12 +115,12 @@ public class invClickListener implements Listener {
                     e.setCancelled(true);
 
                     if (QueueManager.TTTQueue.contains(p)) {
-                        p.sendMessage(ChatColor.WHITE + "You left the Queue for TTT");
+                        p.sendMessage(Data.PREFIX + ChatColor.WHITE + "You left the Queue for TTT");
                         QueueManager.removePlayer(GameManager.GameType.TICTACTOE,p);
 
 
                     } else {
-                        p.sendMessage(ChatColor.WHITE + "You entered the Queue for TTT");
+                        p.sendMessage(Data.PREFIX + ChatColor.WHITE + "You entered the Queue for TTT");
                         QueueManager.addPlayer(GameManager.GameType.TICTACTOE,p);
 
                     }
